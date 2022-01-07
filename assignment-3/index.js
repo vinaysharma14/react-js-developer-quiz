@@ -1,4 +1,4 @@
-// a mapping of each `recipe` against it's fuge
+// a mapping of each `recipe` against it's fudge
 // which fallbacks to `1` if recipe is not found
 fudge =
   {

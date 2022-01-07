@@ -89,10 +89,12 @@ fetch('/echo/', {
 
   /**
    * alternatively, `Content-Type` could be kept as `application/json`
-   * and body be sent as a serialised JSON as below:
+   * and body be sent as a serialised JSON and this approach
+   * would need `json.json` to NOT be serialised:
    * `body: JSON.stringify(json)`
    *
-   * note: this would need `json.json to NOT be serialised
+   * note: ideally, the choice between both depends
+   * on the nature of of the API endpoint specification
    */
 })
   .then(function (response) {

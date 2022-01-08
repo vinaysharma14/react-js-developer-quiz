@@ -1,0 +1,9 @@
+@import '../styles/mixin.scss';
+
+.app-container {
+  @include bg();
+  @include boxShadow();
+  @include borderRadius();
+
+  padding: 40px;
+}

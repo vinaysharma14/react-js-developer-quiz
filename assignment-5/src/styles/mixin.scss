@@ -1,0 +1,29 @@
+// ==== background coloring ==== //
+
+@mixin bg {
+  background-color: var(--bg);
+}
+
+// ==== flex positioning ==== //
+
+@mixin flexCenter($direction: '') {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @if $direction != '' {
+    flex-direction: $direction;
+  }
+}
+
+// ==== box shadow ==== //
+
+@mixin boxShadow($color: #ccc) {
+  box-shadow: 0px 0px 2px 2px #{$color};
+}
+
+// ==== border radius ==== //
+
+@mixin borderRadius($radius: 2px) {
+  border-radius: #{$radius};
+}

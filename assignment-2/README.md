@@ -8,4 +8,4 @@ Using HTML and CSS please create this design as close to pixel perfect as possib
 
 ## Solution 🚀
 
-<img src="solution.png" alt="demo" style="display: block; margin: 0 auto">
+<img src="solution.png" alt="demo" height="529" style="display: block; margin: 0 auto">

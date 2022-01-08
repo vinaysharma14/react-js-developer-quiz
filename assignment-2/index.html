@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Assignment 2</title>
+
+    <link rel="stylesheet" href="vars.css" />
+    <link rel="stylesheet" href="utils.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script
+      crossorigin="anonymous"
+      src="https://kit.fontawesome.com/a7f9bcd8d5.js"
+    ></script>
+  </head>
+
+  <body>
+    <div>
+      <h2>Assignment</h2>
+      <img class="demo" src="demo.png" alt="demo" />
+    </div>
+
+    <div>
+      <h2>Solution</h2>
+      <div class="form-container">
+        <form>
+          <label for="full-name">Your full given name:</label>
+          <input
+            type="text"
+            id="full-name"
+            name="full-name"
+            class="input-container margin-bottom-34"
+          />
+
+          <div class="dob-country-container margin-bottom-40">
+            <div>
+              <label for="date-of-birth">Date of Birth</label>
+              <div class="input-container align-items-center">
+                <i class="fas fa-calendar-week"></i>
+                <input
+                  type="text"
+                  class="w-100"
+                  id="date-of-birth"
+                  name="date-of-birth"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="country">Country of residence or citizenship:</label>
+              <div class="input-container">
+                <input
+                  type="text"
+                  class="w-100"
+                  id="country-of-origin"
+                  name="country-of-origin"
+                />
+              </div>
+            </div>
+          </div>
+
+          <label for="school">What school do you plan to attend?</label>
+          <input
+            type="text"
+            id="school"
+            name="school"
+            class="input-container margin-bottom-34"
+          />
+
+          <label for="area-of-study"
+            >Please take a moment to describe your intended area of study:
+          </label>
+          <div class="input-container textarea-padding flex-1">
+            <textarea
+              class="w-100"
+              id="area-of-study"
+              name="area-of-study"
+              placeholder="Enter details here"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+  mb not working for label and input wrapped by a div
+  input overflowing div with 100% h and w
+  div expanding wth padding
+-->

@@ -1,5 +1,5 @@
 {
-  "plugins": ["react-hooks"],
+  "plugins": ["react-hooks", "react", "jsx-a11y", "import"],
   "parser": "@typescript-eslint/parser",
   "env": { "es6": true, "browser": true },
   "parserOptions": { "project": "./tsconfig.json" },

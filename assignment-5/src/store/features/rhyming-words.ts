@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { AppThunk } from 'store';
 import { CONSTANTS } from 'constant';
-import { RhymingWordType, fetchRhymingWordsService } from 'services/rhyme-words';
+import { RhymingWordType, fetchRhymingWordsService } from 'services/rhyming-words-service';
 
 interface RhymingWordsState {
   fetchingRhymingWords: boolean,

@@ -1,4 +1,4 @@
-export const ERRORS = {
+export const FORM_ERRORS = {
   word: {
     required: 'Please enter a word',
     maxLength: 'Word can be upto 20 characters',
@@ -7,6 +7,6 @@ export const ERRORS = {
   },
 } as const;
 
-export type FieldNameType = keyof typeof ERRORS;
-export type ErrorType = keyof typeof ERRORS[FieldNameType];
-export type ErrorMessageType = typeof ERRORS[FieldNameType][ErrorType];
+export type FieldNameType = keyof typeof FORM_ERRORS;
+export type FormErrorType = keyof typeof FORM_ERRORS[FieldNameType];
+export type FormErrorMessageType = typeof FORM_ERRORS[FieldNameType][FormErrorType];

@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { ErrorType } from 'errors';
+import { FormErrorType } from 'errors';
 
 import { Input } from './Input';
 import { Button } from './Button';
@@ -31,7 +31,7 @@ export const WordInputForm: FC = () => {
           pattern: /^[a-zA-Z]+$/,
         })}
         placeholder='Enter your word here'
-        error={errors.word?.type as ErrorType | undefined}
+        error={errors.word?.type as FormErrorType | undefined}
       />
 
       <Button

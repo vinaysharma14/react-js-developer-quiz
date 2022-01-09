@@ -1,12 +1,12 @@
 import { FC, useMemo, HTMLProps } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-import { ERRORS, ErrorType, FieldNameType, ErrorMessageType } from 'errors';
+import { FORM_ERRORS, FormErrorType, FieldNameType, FormErrorMessageType } from 'errors';
 
 import './styles.scss';
 
 interface Props {
-  error?: ErrorType;
+  error?: FormErrorType;
   register: UseFormRegisterReturn;
 }
 
@@ -15,9 +15,9 @@ export const Input: FC<Props & HTMLProps<HTMLInputElement>> = ({
   register,
   placeholder,
 }) => {
-  const errorMessage = useMemo((): ErrorMessageType | undefined => {
+  const errorMessage = useMemo((): FormErrorMessageType | undefined => {
     if (error) {
-      return ERRORS[register.name as FieldNameType][error];
+      return FORM_ERRORS[register.name as FieldNameType][error];
     }
 
     return undefined;

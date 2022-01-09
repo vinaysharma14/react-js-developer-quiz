@@ -1,6 +1,7 @@
 @import '../../../styles/mixin.scss';
 
 button {
+  @include flexCenter();
   @include borderRadius();
   @include transition(box-shadow);
 
@@ -22,5 +23,24 @@ button {
   &:disabled {
     opacity: 0.5;
     cursor: wait;
+  }
+}
+
+.loader {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin-left: 0.8rem;
+  border: 1px solid #fff;
+  animation: spin 1s linear infinite;
+  border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

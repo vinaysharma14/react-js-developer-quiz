@@ -3,8 +3,8 @@ import { FC, useMemo, ButtonHTMLAttributes } from 'react';
 import './styles.scss';
 
 interface Props {
-  text: string
-  loading?: boolean
+  text: string;
+  isLoading?: boolean;
 }
 
 export const Button: FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({
@@ -12,18 +12,19 @@ export const Button: FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({
   text,
   onClick,
   onSubmit,
-  disabled,
+  isLoading,
 }) => {
   const isSubmit = useMemo(() => type === 'submit', [type]);
 
   return (
     <button
       onClick={onClick}
-      disabled={disabled}
       onSubmit={onSubmit}
+      disabled={isLoading}
       type={isSubmit ? 'submit' : 'button'}
     >
       {text}
+      {isLoading && <div className='loader' />}
     </button>
   );
 };

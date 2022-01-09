@@ -49,7 +49,7 @@ export const WordInputForm: FC = () => {
 
       <Button
         type='submit'
-        disabled={fetchingRhymingWords}
+        isLoading={fetchingRhymingWords}
         onSubmit={handleSubmit(submitHandler)}
         text={`${fetchingRhymingWords ? 'Searching' : 'Search'} Rhyming Words`}
       />

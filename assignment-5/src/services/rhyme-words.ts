@@ -1,13 +1,13 @@
 import { call } from './index';
 import { API_ERRORS } from 'errors';
 
-type RhymingWordType = {
+export type RhymingWordType = {
   word: string;
   score: number;
   numSyllables: number;
 }[];
 
-export const fetchRhymingWords = async (userInputWord: string): Promise<RhymingWordType[]> => {
+export const fetchRhymingWordsService = async (userInputWord: string): Promise<RhymingWordType[]> => {
   try {
     const rhymingWords = (await call(
       'GET',

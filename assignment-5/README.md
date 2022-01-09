@@ -8,6 +8,8 @@
 
 ## Solution 🚀
 
+<img src="solution.gif" alt="demo" height="529" style="display: block; margin: 0 auto">
+
 ```bash
   # clone the repository
   git clone https://github.com/vinaysharma14/react-js-developer-quiz

@@ -1,3 +1,5 @@
+// =============================== Form Errors =============================== //
+
 export const FORM_ERRORS = {
   word: {
     required: 'Please enter a word',
@@ -10,3 +12,10 @@ export const FORM_ERRORS = {
 export type FieldNameType = keyof typeof FORM_ERRORS;
 export type FormErrorType = keyof typeof FORM_ERRORS[FieldNameType];
 export type FormErrorMessageType = typeof FORM_ERRORS[FieldNameType][FormErrorType];
+
+// =============================== API Errors =============================== //
+
+export const API_ERRORS = {
+  noResult: 'No rhyming words could be found, please try a different word',
+  tryAgain: 'We are facing some technical issues at the moment. Please try again later.',
+} as const;

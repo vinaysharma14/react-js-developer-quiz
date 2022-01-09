@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, useRef, useMemo, useEffect } from 'react';
 import { RootState } from 'store';
 import { useSelector } from 'react-redux';
 
@@ -13,11 +13,16 @@ const RhymingWord: FC<RhymingWordProps> = ({ word }) => (
 );
 
 export const RhymingWordsList = () => {
+  const listContainerRef = useRef<HTMLDivElement>(null);
+
   const {
     rhymingWords,
     fetchingRhymingWords,
     rhymingWordsFetchError: err,
   } = useSelector(({ rhymingWordsReducer }: RootState) => rhymingWordsReducer);
+
+  // auto scroll list to top every time user searches a new input
+  useEffect(() => listContainerRef.current?.scrollTo(0, 0), [fetchingRhymingWords]);
 
   const render = useMemo(() => {
     if (fetchingRhymingWords) {
@@ -35,5 +40,9 @@ export const RhymingWordsList = () => {
     );
   }, [err, rhymingWords, fetchingRhymingWords]);
 
-  return <div className='rhyming-words-list-container'>{render}</div>;
+  return (
+    <div ref={listContainerRef} className='rhyming-words-list-container'>
+      {render}
+    </div>
+  );
 };

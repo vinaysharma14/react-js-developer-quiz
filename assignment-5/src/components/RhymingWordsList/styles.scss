@@ -1,0 +1,69 @@
+@import '../../styles/mixin.scss';
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+    visibility: hidden;
+  }
+}
+
+.error {
+  color: red !important;
+}
+
+.rhyming-words-list-container {
+  @include borderRadius();
+
+  height: 10rem;
+  overflow: scroll;
+  margin-top: 2rem;
+  position: relative;
+  border: 1px solid #ccc;
+
+  i {
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    color: var(--placeholder-color);
+    transform: translate(-50%, -50%);
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .word-container {
+    @include flexCenter();
+
+    height: 2rem;
+    margin: 0 2rem;
+    border-bottom: 1px solid #ccc;
+
+    div {
+      width: 80%;
+      height: 0.8rem;
+      background-color: #ddd;
+      animation: fadeOut 0.75s ease-in-out 0.25s infinite alternate both;
+    }
+
+    &:nth-child(2n) {
+      div {
+        background-color: #eee;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

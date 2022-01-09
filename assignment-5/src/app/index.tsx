@@ -1,6 +1,6 @@
 import './styles.scss';
 
-import { Greetings, WordInputForm } from 'components';
+import { Greetings, WordInputForm, RhymingWordsList } from 'components';
 
 export const App = () => {
   return (
@@ -11,6 +11,8 @@ export const App = () => {
       />
 
       <WordInputForm />
+
+      <RhymingWordsList />
     </div>
   );
 };

@@ -18,6 +18,6 @@ export type FormErrorMessageType = typeof FORM_ERRORS[FieldNameType][FormErrorTy
 // =============================== API Errors =============================== //
 
 export const API_ERRORS = {
-  noResult: 'No rhyming words could be found, please try a different word',
+  noResult: 'No rhyming words could be found, please try a different word.',
   tryAgain: 'We are facing some technical issues at the moment. Please try again later.',
 } as const;

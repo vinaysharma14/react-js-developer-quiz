@@ -43,7 +43,7 @@ export const WordInputForm: FC = () => {
           minLength: CONSTANTS.minUserWordInputLength,
           maxLength: CONSTANTS.maxUserWordInputLength,
         })}
-        placeholder='Enter your word here'
+        placeholder='Try searching "success"'
         error={errors.word?.type as FormErrorType | undefined}
       />
 

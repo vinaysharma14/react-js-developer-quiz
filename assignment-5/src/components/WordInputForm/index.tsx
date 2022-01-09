@@ -25,7 +25,7 @@ export const WordInputForm: FC = () => {
 
   const dispatch = useDispatch();
 
-  const { fetchingRhymingWords } = useSelector(
+  const { submitButtonText, fetchingRhymingWords } = useSelector(
     ({ rhymingWordsReducer }: RootState) => rhymingWordsReducer,
   );
 
@@ -49,9 +49,9 @@ export const WordInputForm: FC = () => {
 
       <Button
         type='submit'
+        text={submitButtonText}
         isLoading={fetchingRhymingWords}
         onSubmit={handleSubmit(submitHandler)}
-        text={`${fetchingRhymingWords ? 'Searching' : 'Search'} Rhyming Words`}
       />
     </form>
   );

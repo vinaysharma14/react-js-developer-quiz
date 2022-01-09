@@ -5,6 +5,7 @@ import { CONSTANTS } from 'constant';
 import { RhymingWordType, fetchRhymingWordsService } from 'services/rhyming-words-service';
 
 interface RhymingWordsState {
+  submitButtonText: string,
   fetchingRhymingWords: boolean,
   rhymingWordsFetchError: string,
   rhymingWords: RhymingWordType['word'][],
@@ -14,6 +15,7 @@ const initialState: RhymingWordsState = {
   rhymingWords: [],
   rhymingWordsFetchError: '',
   fetchingRhymingWords: false,
+  submitButtonText: 'Search Rhyming Words',
 };
 
 const rhymingWordsSlice = createSlice({
@@ -24,6 +26,7 @@ const rhymingWordsSlice = createSlice({
       state.rhymingWords = [];
       state.fetchingRhymingWords = true;
       state.rhymingWordsFetchError = '';
+      state.submitButtonText = 'Searching Rhyming Words';
     },
     fetchRhymingWordsSuccess: (
       state: RhymingWordsState,
@@ -34,6 +37,7 @@ const rhymingWordsSlice = createSlice({
     },
     fetchRhymingWordsFailed: (state: RhymingWordsState, { payload }: PayloadAction<string>) => {
       state.fetchingRhymingWords = false;
+      state.submitButtonText = 'Try again';
       state.rhymingWordsFetchError = payload;
     },
   },

@@ -5,7 +5,7 @@ export type RhymingWordType = {
   word: string;
   score: number;
   numSyllables: number;
-}[];
+};
 
 export const fetchRhymingWordsService = async (userInputWord: string): Promise<RhymingWordType[]> => {
   try {

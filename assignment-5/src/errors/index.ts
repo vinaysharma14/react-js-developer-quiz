@@ -1,11 +1,13 @@
+import { CONSTANTS } from 'constant';
+
 // =============================== Form Errors =============================== //
 
 export const FORM_ERRORS = {
   word: {
     required: 'Please enter a word',
-    maxLength: 'Word can be upto 20 characters',
-    minLength: 'Word should be at least 3 characters long',
+    maxLength: `Word can be upto ${CONSTANTS.maxUserWordInputLength} characters`,
     pattern: 'Invalid word entered, allowed characters are A-Z a-z (without spaces)',
+    minLength: `Word should be at least ${CONSTANTS.minUserWordInputLength} characters long`,
   },
 } as const;
 

@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { AppThunk } from 'store';
+import { CONSTANTS } from 'constant';
 import { RhymingWordType, fetchRhymingWordsService } from 'services/rhyme-words';
 
 interface RhymingWordsState {
   fetchingRhymingWords: boolean,
   rhymingWordsFetchError: string,
-  rhymingWords: RhymingWordType[],
+  rhymingWords: RhymingWordType['word'][],
 }
 
 const initialState: RhymingWordsState = {
@@ -26,7 +27,7 @@ const rhymingWordsSlice = createSlice({
     },
     fetchRhymingWordsSuccess: (
       state: RhymingWordsState,
-      { payload }: PayloadAction<RhymingWordType[]>,
+      { payload }: PayloadAction<RhymingWordType['word'][]>,
     ) => {
       state.rhymingWords = payload;
       state.fetchingRhymingWords = false;
@@ -52,7 +53,21 @@ export const fetchRhymingWords = (userInputWord: string): AppThunk => async (dis
   try {
     const rhymingWords = await fetchRhymingWordsService(userInputWord);
 
-    dispatch(fetchRhymingWordsSuccess(rhymingWords));
+    dispatch(fetchRhymingWordsSuccess(
+      rhymingWords
+        // it's impractical to display all the search results to user
+        // so ideally we should filter out only those which surpass a
+        // threshold score and lie between a range of word length
+        .filter(({ score, word }) =>
+          score >= CONSTANTS.minRhymingWordScore &&
+          word.length >= CONSTANTS.minRhymingWordLength &&
+          word.length <= CONSTANTS.maxRhymingWordLength,
+        )
+        // sort the rhyming words in descending order of their score
+        .sort((wordA, wordB) => wordB.score - wordA.score)
+        // map only the words as user isn't concerned with the rest of the data for now
+        .map(({ word }) => word),
+    ));
   } catch ({ message }) {
     dispatch(fetchRhymingWordsFailed(message as string));
   }

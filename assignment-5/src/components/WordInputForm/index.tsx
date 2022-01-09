@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from 'store';
+import { CONSTANTS } from 'constant';
 import { FormErrorType } from 'errors';
 import { fetchRhymingWords } from 'store/features';
 
@@ -38,9 +39,9 @@ export const WordInputForm: FC = () => {
       <Input
         register={register('word', {
           required: true,
-          minLength: 3,
-          maxLength: 20,
           pattern: /^[a-zA-Z]+$/,
+          minLength: CONSTANTS.minUserWordInputLength,
+          maxLength: CONSTANTS.maxUserWordInputLength,
         })}
         placeholder='Enter your word here'
         error={errors.word?.type as FormErrorType | undefined}

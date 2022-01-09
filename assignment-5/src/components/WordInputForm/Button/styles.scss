@@ -1,0 +1,26 @@
+@import '../../../styles/mixin.scss';
+
+button {
+  @include borderRadius();
+  @include transition(box-shadow);
+
+  width: 100%;
+  border: none;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+
+  &:focus {
+    box-shadow: 0 0 0 3px var(--input-focus-shadow);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+}

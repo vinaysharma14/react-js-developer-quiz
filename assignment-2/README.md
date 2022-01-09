@@ -8,4 +8,12 @@ Using HTML and CSS please create this design as close to pixel perfect as possib
 
 ## Solution 🚀
 
+```bash
+  # clone the repository
+  git clone https://github.com/vinaysharma14/react-js-developer-quiz
+
+  # open the assignment and run the `index.html` file
+  cd assignment-2
+```
+
 <img src="output.png" alt="demo" height="529" style="display: block; margin: 0 auto">

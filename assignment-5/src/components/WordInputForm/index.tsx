@@ -1,7 +1,10 @@
 import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { RootState } from 'store';
 import { FormErrorType } from 'errors';
+import { fetchRhymingWords } from 'store/features';
 
 import { Input } from './Input';
 import { Button } from './Button';
@@ -19,7 +22,16 @@ export const WordInputForm: FC = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
-  const submitHandler = useCallback((data: FormValues) => console.log(data.word), []);
+  const dispatch = useDispatch();
+
+  const { fetchingRhymingWords } = useSelector(
+    ({ rhymingWordsReducer }: RootState) => rhymingWordsReducer,
+  );
+
+  const submitHandler = useCallback(
+    ({ word }: FormValues) => dispatch(fetchRhymingWords(word)),
+    [dispatch],
+  );
 
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
@@ -36,8 +48,9 @@ export const WordInputForm: FC = () => {
 
       <Button
         type='submit'
-        text='Search Rhyming Words'
+        disabled={fetchingRhymingWords}
         onSubmit={handleSubmit(submitHandler)}
+        text={`${fetchingRhymingWords ? 'Searching' : 'Search'} Rhyming Words`}
       />
     </form>
   );

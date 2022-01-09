@@ -4,15 +4,15 @@ import { AppThunk } from 'store';
 import { RhymingWordType, fetchRhymingWordsService } from 'services/rhyme-words';
 
 interface RhymingWordsState {
-  fetching: boolean,
+  fetchingRhymingWords: boolean,
   rhymingWordsFetchError: string,
   rhymingWords: RhymingWordType[],
 }
 
 const initialState: RhymingWordsState = {
-  fetching: true,
   rhymingWords: [],
   rhymingWordsFetchError: '',
+  fetchingRhymingWords: false,
 };
 
 const rhymingWordsSlice = createSlice({
@@ -20,19 +20,19 @@ const rhymingWordsSlice = createSlice({
   initialState,
   reducers: {
     fetchRhymingWordsRequest: (state: RhymingWordsState) => {
-      state.fetching = true;
       state.rhymingWords = [];
+      state.fetchingRhymingWords = true;
       state.rhymingWordsFetchError = '';
     },
     fetchRhymingWordsSuccess: (
       state: RhymingWordsState,
       { payload }: PayloadAction<RhymingWordType[]>,
     ) => {
-      state.fetching = false;
       state.rhymingWords = payload;
+      state.fetchingRhymingWords = false;
     },
     fetchRhymingWordsFailed: (state: RhymingWordsState, { payload }: PayloadAction<string>) => {
-      state.fetching = false;
+      state.fetchingRhymingWords = false;
       state.rhymingWordsFetchError = payload;
     },
   },
@@ -46,7 +46,7 @@ const {
   fetchRhymingWordsFailed,
 } = rhymingWordsSlice.actions;
 
-const fetchRhymingWords = (userInputWord: string): AppThunk => async (dispatch) => {
+export const fetchRhymingWords = (userInputWord: string): AppThunk => async (dispatch) => {
   dispatch(fetchRhymingWordsRequest());
 
   try {
@@ -57,5 +57,3 @@ const fetchRhymingWords = (userInputWord: string): AppThunk => async (dispatch) 
     dispatch(fetchRhymingWordsFailed(message as string));
   }
 };
-
-export { fetchRhymingWords };

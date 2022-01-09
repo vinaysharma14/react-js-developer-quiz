@@ -25,9 +25,13 @@ export const Input: FC<Props & HTMLProps<HTMLInputElement>> = ({
 
   return (
     <>
-      <input {...register} placeholder={placeholder} />
+      <input
+        {...register}
+        placeholder={placeholder}
+        className={errorMessage ? 'input-error-border' : ''}
+      />
 
-      {errorMessage && <p className='input-error'>{errorMessage}</p>}
+      <p className={`input-error-message ${errorMessage ? 'show' : ''}`}>{errorMessage}</p>
     </>
   );
 };

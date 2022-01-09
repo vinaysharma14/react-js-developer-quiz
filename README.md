@@ -1,6 +1,6 @@
 # React JS Developer Quiz ⚛️
 
-All the solutions have been organized into their respective assignment folders. Each assignment folder has a dedicated `README` file for either solution or the steps to the run the project.
+All the solutions have been organized into their respective assignment folders. Each assignment folder has a dedicated `README` file for either it's solution or the steps to run the project.
 
 - [Assignment 1](https://github.com/vinaysharma14/react-js-developer-quiz/tree/master/assignment-1)
 - [Assignment 2](https://github.com/vinaysharma14/react-js-developer-quiz/tree/master/assignment-2)

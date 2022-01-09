@@ -1,6 +1,6 @@
 import './styles.scss';
 
-import { Greetings } from 'components';
+import { Greetings, WordInputForm } from 'components';
 
 export const App = () => {
   return (
@@ -9,6 +9,8 @@ export const App = () => {
         heading='Welcome to Rhyme App'
         subHeading='Find rhyming words for your input with our powerful word-finding query engine!'
       />
+
+      <WordInputForm />
     </div>
   );
 };

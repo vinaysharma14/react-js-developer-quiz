@@ -19,11 +19,17 @@
 // ==== box shadow ==== //
 
 @mixin boxShadow($color: #ccc) {
-  box-shadow: 0px 0px 2px 2px #{$color};
+  box-shadow: 0px 0px 5px 0 #{$color};
 }
 
 // ==== border radius ==== //
 
-@mixin borderRadius($radius: 2px) {
+@mixin borderRadius($radius: 0.25rem) {
   border-radius: #{$radius};
+}
+
+// ========== transition ========== //
+
+@mixin transition($value, $dur: 0.5) {
+  transition: $value #{$dur}s cubic-bezier(0.3, 1, 0.3, 1);
 }
